@@ -63,7 +63,15 @@ var printEvents = function() {
   }
 
   isItWithinAWeek();
+  outputEvents();
 }
+
+var outputEvents = function() {
+  console.log(_upcomingEvents.join(' '));
+  return _upcomingEvents.join(' ');
+
+}
+
 
 var packageObject = function() {
   console.log('Packaging up event object..');
@@ -87,10 +95,10 @@ printEvents();
 
 axios.all([getEvents()]).then(axios.spread(function(response) {
   _events = response.data.results;
-  console.log('***');
-  console.log(response.data.results.length);
-  console.log('***');
-  console.log(_events.length);
+  // console.log('***');
+  // console.log(response.data.results.length);
+  // console.log('***');
+  // console.log(_events.length);
 
 packageObject();
 
