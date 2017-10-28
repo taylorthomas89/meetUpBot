@@ -36,7 +36,6 @@ var packageObject = function() {
   };
 
   printEvents();
-
 }
 
 var printEvents = function() {
@@ -53,14 +52,10 @@ var printEvents = function() {
   };
 
   testing();
-
 }
-
 
 var isItWithinAWeek = function(event) {
   var now = new Date();
-  // console.log(event.time.getDate());
-  // console.log(event.time.getMonth());
 
   event.time.getDate() - now.getDate() <= 7 &&
   event.time.getDate() - now.getDate() >= 0  &&
