@@ -35,7 +35,7 @@ var packageObject = function() {
 
   };
 
-  printEvents();
+  //printEvents();
 }
 
 var printEvents = function() {
@@ -51,7 +51,7 @@ var printEvents = function() {
       console.log("");
   };
 
-  testing();
+  //testing();
 }
 
 var isItWithinAWeek = function(event) {
@@ -69,7 +69,7 @@ var testing = function() {
     return event['name'];
   });
 
-  console.log(test);
+  //console.log(test);
 }
 
 axios.all([getEvents()]).then(axios.spread(function(response) {
