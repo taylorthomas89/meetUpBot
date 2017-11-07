@@ -2,10 +2,10 @@
   "name": "meetupcrawler",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "server/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "BOT_API_KEY=xoxb-261527910544-VVL6Q5KzrS1rFdphVp84f384 node bin/bot.js"
+    "build": "node bin/bot.js"
   },
   "author": "",
   "license": "ISC",
