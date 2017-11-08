@@ -9,7 +9,7 @@ var _upcomingEvents = [];
 
 var getEvents = function() {
   clearEvents();
-  var url = 'https://api.meetup.com/2/events?&sign=true&photo-host=public&member_id=224317364&key=20452c26556e6e7b2f56023185e375a&page=20'
+  var url = `https://api.meetup.com/2/events?&sign=true&photo-host=public&member_id=224317364&key=${process.env.MEETUP_API_KEY}&page=20`
   return axios.get(url);
 }
 
@@ -61,6 +61,7 @@ var returnEvent = function(event) {
 }
 
 axios.all([getEvents()]).then(axios.spread(function(response) {
+  console.log('Getting Meetups..');
   _events = response.data.results;
   packageObject();
 }));
