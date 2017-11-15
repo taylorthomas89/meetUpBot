@@ -32,7 +32,6 @@ var packageObject = function() {
       url: _events[i].event_url,
       time: time
     });
-
   };
 }
 
@@ -50,6 +49,7 @@ var printEvents = function() {
 //This needs to be re-worked to account for edge cases(such as current day being towards end of month)
 var isItWithinAWeek = function(event) {
   var now = new Date();
+
   return event.time.getDate() - now.getDate() <= 7 &&
   event.time.getDate() - now.getDate() >= 0  &&
   event.time.getMonth() - now.getMonth() == 0
@@ -60,6 +60,12 @@ var returnEvent = function(event) {
   return isItWithinAWeek(event) ? event.url : console.log('Event not within a week!');
 }
 
+var isThereUpcomingEvents = function() {
+  for (var i = 0; i < _upcomingEvents.length; i++) {
+    return isItWithinAWeek(_upcomingEvents[i]) ? true : false;
+  }
+}
+
 axios.all([getEvents()]).then(axios.spread(function(response) {
   console.log('Getting Meetups..');
   _events = response.data.results;
@@ -68,5 +74,6 @@ axios.all([getEvents()]).then(axios.spread(function(response) {
 
 module.exports = {
   _upcomingEvents,
+  isThereUpcomingEvents,
   returnEvent
 }
